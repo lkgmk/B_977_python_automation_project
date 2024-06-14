@@ -4,4 +4,5 @@ Steps to set up automation project:-
 2. Create virtualenv and activate the virtualenv 
 3. Install all libraries from requirements.txt 
    -- pip install -r /path/to/requirements.txt
-4. Add pytest command here.
+4. Run the pytest command - pytest -s -m login
+5. Add pytest command here.
