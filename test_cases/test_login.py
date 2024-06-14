@@ -50,3 +50,7 @@ class TestLoginPage:
     @pytest.mark.login
     def test_login_with_valid_credentials(self, set_up):
         pass
+
+    @pytest.mark.login
+    def test_login_with_invalid_credentials(self, set_up):
+        pass
