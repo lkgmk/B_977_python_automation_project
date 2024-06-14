@@ -46,3 +46,7 @@ class TestLoginPage:
             self.driver.save_screenshot("screenshots\\" + "test_login_page_title.png")
             self.driver.close()
             assert False
+
+    @pytest.mark.login
+    def test_login_with_valid_credentials(self, set_up):
+        pass
