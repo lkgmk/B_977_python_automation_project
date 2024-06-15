@@ -1,6 +1,6 @@
 import openpyxl
 
-file_name = "C:\\Users\\laxmi\\OneDrive\\Desktop\\nopcom_2\\test_data\\proj_ddt.xlsx"
+file_name = "C:\\Users\\Dhanashri Thorat\\Desktop\\gitcheck\\B_977_python_automation_project\\test_data\\proj_ddt.xlsx"
 
 
 def get_rows_count(file_name=file_name):
