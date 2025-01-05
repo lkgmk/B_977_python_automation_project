@@ -6,6 +6,7 @@ class SearchCustomer:
     first_name_id = "SearchFirstName"
     last_name_id = "SearchLastName"
     search_button_id = "search-customers"
+    company_name_id = "SearchCompany"
 
     # table xpath
     search_result_table_xpath = '//table[@id="customers-grid"]'
@@ -28,6 +29,10 @@ class SearchCustomer:
         self.driver.find_element(By.ID, self.last_name_id).clear()
         self.driver.find_element(By.ID, self.last_name_id).send_keys(l_name)
 
+    def set_company_name(self, company_name):
+        self.driver.find_element(By.ID, self.company_name_id).clear()
+        self.driver.find_element(By.ID, self.company_name_id).send_keys(company_name)
+
     def search_button(self):
         self.driver.find_element(By.ID, self.search_button_id).click()
 
@@ -40,9 +45,8 @@ class SearchCustomer:
     def search_customer_by_email(self, email):
         flag = False
         for r in range(1, self.get_number_of_rows() + 1):
-            r = 1
             email_id = self.driver.find_element(By.XPATH,
-                                                '//table[@id="customers-grid"]//tbody/tr[1]/td[2]'.format(r)).text
+                                                '//table[@id="customers-grid"]//tbody/tr[{}]/td[2]'.format(r)).text
             if email_id == email:
                 flag = True
                 break
@@ -59,7 +63,24 @@ class SearchCustomer:
         return flag
 
     def search_customer_by_company_name(self, company_name):
-        pass
+        flag = False
+        for r in range(1, self.get_number_of_rows() + 1):
+            company_name_id = self.driver.find_element(By.XPATH,
+                                                '//table[@id="customers-grid"]//tbody/tr[{}]/td[5]'.format(r)).text
+            if company_name_id == company_name:
+                flag = True
+                break
+        return flag
 
     def search_customer_by_email_and_company_name(self, email, company_name):
-        pass
+        flag = False
+        for r in range(1, self.get_number_of_rows() + 1):
+            email_id = self.driver.find_element(By.XPATH,
+                                                '//table[@id="customers-grid"]//tbody/tr[{}]/td[2]'.format(r)).text
+            company_name_id = self.driver.find_element(By.XPATH,
+                                                '//table[@id="customers-grid"]//tbody/tr[{}]/td[5]'.format(r)).text
+
+            if email_id == email and company_name_id == company_name:
+                flag = True
+                break
+        return flag
